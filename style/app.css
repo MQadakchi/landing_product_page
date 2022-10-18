@@ -1,0 +1,148 @@
+:root {
+  --primaryColor: #dabfff;
+  --secondaryColor: #4f518c;
+  --textColor: #907ad6;
+  --lightColor: #7fdeff;
+  --darkColor: #2c2a4a;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("/fonts/vazir.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: vazir;
+  font-weight: normal;
+  direction: rtl;
+  text-align: right;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--darkColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--lightColor);
+  border-radius: 25px;
+  box-shadow: 0 0 5px var(--lightColor);
+}
+.container {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4a4a4a;
+}
+.wrapper {
+  width: 100%;
+  height: 75vh;
+  padding: 50px;
+  position: relative;
+}
+.items {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.items.active {
+  display: flex;
+}
+.items.active .image {
+  animation: slideRight 0.75s linear;
+}
+.items.active .description {
+  animation: slideLeft 0.75s linear;
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0%);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0%);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.items .image,
+.items .description {
+  height: 100%;
+}
+.items .image {
+  width: 65%;
+  padding: 50px;
+}
+.items .description {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+.items .description h1 {
+  font-size: 2.2rem;
+  color: #fff;
+}
+.items .description p {
+  font-size: 1.1rem;
+  text-align: justify;
+  line-height: 2.4rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.items .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nav {
+  width: 1000px;
+  height: 150px;
+  position: fixed;
+  bottom: 50px;
+  right: 50%;
+  transform: translateX(50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav .cars {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav .cars img {
+  width: 75%;
+  height: 75%;
+  object-fit: cover;
+  cursor: pointer;
+}
